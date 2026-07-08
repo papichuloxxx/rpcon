@@ -1,9 +1,17 @@
-﻿// Loader
+// Loader
+const hideLoader = () => {
+  const loader = document.getElementById('loader');
+  if (loader && !loader.classList.contains('hidden')) {
+    loader.classList.add('hidden');
+  }
+};
+
 window.addEventListener('load', () => {
-  setTimeout(() => {
-    document.getElementById('loader').classList.add('hidden');
-  }, 800);
+  setTimeout(hideLoader, 800);
 });
+
+// Fallback: hide loader after 5 seconds max if window.load is delayed (e.g., slow image loads)
+setTimeout(hideLoader, 5000);
 
 // Nav scroll effect
 const nav = document.getElementById('nav');
